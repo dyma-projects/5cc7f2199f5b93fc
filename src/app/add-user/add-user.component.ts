@@ -9,7 +9,7 @@ import { UserService } from '../shared/services/user.service';
 export class AddUserComponent implements OnInit {
   @ViewChild('input', {static: false}) public el: ElementRef;
 
-  constructor(private user: UserService) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
   }
@@ -17,7 +17,7 @@ export class AddUserComponent implements OnInit {
   addUser() {
     const username = this.el.nativeElement.value;
     if (username) {
-      this.user.addUser(username);
+      this.userService.addUser(username);
       this.el.nativeElement.value = '';
     }
   }
